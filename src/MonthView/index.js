@@ -1008,7 +1008,7 @@ export default class MonthView extends Component {
       this.setState({
         rangeStart: null
       })
-      this.onRangeChange([], event)
+      this.onRangeChange([dateMoment], event)
       return
     }
 
@@ -1017,9 +1017,9 @@ export default class MonthView extends Component {
         rangeStart: dateMoment
       })
 
-      if (range.length == 2 ) {
-        this.onRangeChange([], event)
-      }
+      // if (range.length == 2 ) {
+        this.onRangeChange([dateMoment], event)
+      // }
     } else {
       this.setState({
         rangeStart: null
@@ -1057,6 +1057,7 @@ export default class MonthView extends Component {
 
     if (this.props.onRangeChange) {
       const newRange = range.map(m => {
+        if (!m) { return }
         const dateMoment = this.toMoment(m)
 
         return {
@@ -1066,7 +1067,10 @@ export default class MonthView extends Component {
         }
       })
 
-      const formatted = newRange.map(o => o.dateString)
+      const formatted = newRange.map(o => {
+        if (!o) { return }
+        return o.dateString
+      })
 
       this.props.onRangeChange(formatted, newRange, event)
     }
