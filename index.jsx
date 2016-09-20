@@ -142,7 +142,7 @@ var App = React.createClass({
     </MonthView>
 
             {<TransitionView>
-            <MultiMonthView highlightRangeOnMouseMove defaultRange={[]} size={4}
+            <MultiMonthView highlightRangeOnMouseMove defaultRange={[]} size={4} onRangeChange={this.onRangeChange}
             /></TransitionView>}
 
         <br />
