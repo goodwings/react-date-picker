@@ -267,6 +267,14 @@ export default class MultiMonthView extends Component {
     delete flexProps.viewMoments
     delete flexProps.viewStart
 
+    delete flexProps.minDate
+    delete flexProps.maxDate
+    delete flexProps.onRangeChange
+    delete flexProps.forceValidDate
+    delete flexProps.highlightToday
+    delete flexProps.weekNumbers
+    delete flexProps.weekStartDay
+
     return <Flex
       column
       inline
